@@ -1,5 +1,9 @@
 # rc_work
+# rc car
 
+## rasp-rc-client 树莓派客户端， rc_server 服务器  ，client-libs 可以基于这个开发客户端
+
+```
 RcClient rc_client(RcClient::controller);
 
 int uid = 123;
@@ -29,10 +33,10 @@ rc_client.set_recv_callback([&](uint8_t* data, int len){
     });
 
 rc_client.thread_start();
-
+```
 
 // if send
-
+```
 	// L/R 50 - 160 左转右转 中间 115
     // G 0-100 前进
     // B 0-100 后退
@@ -81,12 +85,14 @@ rc_client.thread_start();
     }
 
     rc_client.send_data(send_buf, send_len + 1);
-
+```
 // end
+```
 rc_client.stop();
-
+```
 
 // reconnect
-
+```
 rc_client.set_server_ip_port(ip, port);
 rc_client.thread_start();
+```
